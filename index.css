@@ -1,0 +1,81 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    --v1: calc(max(9vw, 11vw));
+}
+
+body {
+    background: #ff8400; /* lon limoni*/
+    overflow: hidden;
+    min-height: 200vh;
+}
+
+.container {
+    position: fixed;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.row {
+    display: inline-flex;
+    margin-top: calc(var(--v1) * -0.32);
+    margin-left: calc(var(--v1) * -0.5);
+}
+
+.hexagon {
+    position: relative;
+    width: var(--v1);
+    height: calc(var(--v1) * 1.1);
+    margin: calc(var(--v1) * 0.04 var(--v1) * 0.02);
+    clip-path: polygon(49% 3%, 95% 26%, 95% 74%, 48% 97%, 4% 72%, 4% 25%);
+    background: #ffd900; /*lon sfr*/
+    text-align: center;
+    color: #000;
+    line-height: calc(var(--v1) * 1.1);
+    font-size: 2vw;
+    transition: 1s;
+}
+
+.blank {
+    background: transparent;
+}
+
+button.hexagon {
+    background-color: #000000a9; /* Slightly transparent golden color */
+}
+
+button.hexagon:hover {
+    color: #000;
+    background: #ffd70040;
+}
+
+.row:nth-child(even) {
+    margin-left: calc(var(--v1) * 0.02);
+}
+
+.cursor {
+    position: absolute;
+    width: calc(var(--v1) * 2.5);
+    height: calc(var(--v1) * 2.5);
+    border-radius: 50%;
+    animation: anim 2s linear infinite;
+    visibility: hidden;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes anim {
+    0% {
+        filter: hue-rotate(0deg);
+    }
+    100% {
+        filter: hue-rotate(360deg);
+    }
+}
+
+body:hover .cursor {
+    background: radial-gradient(circle, rgb(81, 74, 74) 0%, rgba(255, 255, 0, 1) 70%); /* lon dyal dowara */
+    visibility:visible;
+    box-shadow: 4px 4px 8px rgb(0, 0, 0,);
+    
+}
